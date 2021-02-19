@@ -13,10 +13,6 @@ namespace YuShop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // Atributte Routing enabled
-            // Encima del método se pone la ruta, ej: [Route("products/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
-            routes.MapMvcAttributeRoutes();
-
 
             routes.MapRoute(
                 name: "Default",
