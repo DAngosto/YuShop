@@ -10,5 +10,8 @@ namespace YuShop.Models
 
         public int Id { get; set; }
         public String Name { get; set; }
+        public bool IsSubscribedToNewsletter { get; set; }
+        public MembershipType membershipType { get; set; }
+        public byte MembershipTypeId { get; set; }
     }
 }
