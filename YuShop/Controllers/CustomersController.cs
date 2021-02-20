@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,8 +27,8 @@ namespace YuShop.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-
-            var customers = _context.Costumers.ToList();
+            // añade la entidad foranea a nuestra entidad customer para mostrar su data
+            var customers = _context.Costumers.Include(c => c.membershipType).ToList();
 
             var viewModel = new CustomersViewModel
             {
