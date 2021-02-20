@@ -32,7 +32,7 @@ namespace YuShop.Controllers
             if (customer == null)
                 return HttpNotFound();
 
-            return View(customer);
+            return View("Details", customer);
         }
 
 
