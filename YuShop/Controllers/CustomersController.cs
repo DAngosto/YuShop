@@ -10,11 +10,24 @@ namespace YuShop.Controllers
 {
     public class CustomersController : Controller
     {
+
+        private MyDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new MyDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Customers
         public ActionResult Index()
         {
 
-            var customers = GetCustomers();
+            var customers = _context.Costumers.ToList();
 
             var viewModel = new CustomersViewModel
             {
@@ -27,22 +40,12 @@ namespace YuShop.Controllers
         public ActionResult Details(int id)
         {
 
-            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            var customer = _context.Costumers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
                 return HttpNotFound();
 
             return View("Details", customer);
-        }
-
-
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-            {
-                new Customer { Id = 1, Name = "John Smith" },
-                new Customer { Id = 2, Name = "Mary Williams" }
-            };
         }
 
     }

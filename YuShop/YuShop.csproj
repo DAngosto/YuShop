@@ -155,7 +155,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\DbContext.cs" />
+    <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
