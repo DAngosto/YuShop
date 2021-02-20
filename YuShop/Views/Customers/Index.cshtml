@@ -1,0 +1,32 @@
+﻿@model YuShop.ViewModels.CustomersViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Customers</h1>
+
+@if (!Model.Customers.Any())
+{
+    <p>We don't have any customers yet.</p>
+}
+else
+{
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>Customer Id </th>
+            <th>Name </th>
+        </tr>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@Html.ActionLink(@customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
+            </tr>
+
+        }
+    </table>
+}
+

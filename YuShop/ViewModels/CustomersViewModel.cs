@@ -6,11 +6,10 @@ using YuShop.Models;
 
 namespace YuShop.ViewModels
 {
-    public class RandomProductViewModel
+    public class CustomersViewModel
     {
 
-        public Product Product { get; set; }
+        public IEnumerable<Customer> Customers { get; set; }
 
-        public List<Customer> Customers { get; set; }
     }
 }

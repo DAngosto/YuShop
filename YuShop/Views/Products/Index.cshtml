@@ -1,0 +1,31 @@
+﻿@model YuShop.ViewModels.ProductsViewModel
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (@Model.Products.Count == 0)
+{
+    <p>There are no products right now</p>
+}
+else
+{
+    <h1>Products</h1>
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>Product Id </th>
+            <th>Name </th>
+        </tr>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+            </tr>
+
+        }
+    </table>
+}
+

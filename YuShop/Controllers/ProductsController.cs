@@ -10,25 +10,23 @@ namespace YuShop.Controllers
 {
     public class ProductsController : Controller
     {
-        // GET: Products/Random
-        public ActionResult Random()
+        // GET: Products
+        public ActionResult Index()
         {
 
-            var product = new Product() { Name = "Vela cumpleaños 3" };
-
-            var customers = new List<Customer>
-            { 
-                new Customer { Name = "Customer 1" },
-                new Customer { Name = "Customer 2" }
+            var products = new List<Product>
+            {
+                new Product { Id = 1, Name = "Shrek" },
+                new Product { Id = 2, Name = "Wall-e" }
             };
 
-            var viewModel = new RandomProductViewModel
+            var viewModel = new ProductsViewModel
             {
-                Product = product,
-                Customers = customers
+                Products = products
             };
 
             return View(viewModel);
         }
+
     }
 }
